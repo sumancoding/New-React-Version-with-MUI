@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -8,6 +8,8 @@ import {
   InputBase,
   Badge,
   Avatar,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -45,6 +47,7 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 const NavBar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -66,9 +69,16 @@ const NavBar = () => {
             alt="Suman"
             src="https://cdn.pixabay.com/photo/2015/11/26/00/14/woman-1063100_960_720.jpg"
             sx={{ width: 30, height: 30 }}
+            onClick={(e) => {
+              setOpen(true);
+            }}
           />
         </Icons>
-        <UserBox>
+        <UserBox
+          onClick={(e) => {
+            setOpen(true);
+          }}
+        >
           <Avatar
             alt="Suman"
             src="https://cdn.pixabay.com/photo/2015/11/26/00/14/woman-1063100_960_720.jpg"
@@ -77,6 +87,24 @@ const NavBar = () => {
           <Typography variant="span">Suman</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        open={open}
+        onClose={(e) => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
