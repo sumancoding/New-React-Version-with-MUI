@@ -8,6 +8,7 @@ import { Box, Stack } from "@mui/material";
 const App = () => {
   return (
     <Box>
+      <NavBar />
       <Stack direction="row" spacing={2} justifyContent="space-between">
         <SideBar />
         <Feed />
