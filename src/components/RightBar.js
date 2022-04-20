@@ -140,7 +140,7 @@ const RightBar = () => {
                     variant="body2"
                     color="text.primary"
                   >
-                    Ali Connors
+                    Ayushma
                   </Typography>
                   {" — I'll be in your neighborhood doing errands this…"}
                 </React.Fragment>
